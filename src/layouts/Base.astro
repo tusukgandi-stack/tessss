@@ -1,4 +1,7 @@
 ---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
 interface Props {
   title: string;
   description?: string;
@@ -6,7 +9,6 @@ interface Props {
 }
 const { title, description = 'AVORIX LAB — Bot Automation, Source Code & Digital Tools', ogType = 'website' } = Astro.props;
 ---
-<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
@@ -22,17 +24,15 @@ const { title, description = 'AVORIX LAB — Bot Automation, Source Code & Digit
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body class="min-h-screen">
-  <import('../components/Nav.astro') />
+  <Nav />
   <slot />
-  <import('../components/Footer.astro') />
+  <Footer />
   <script>
-    // Scroll reveal
     const obs = new IntersectionObserver(entries => entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
     }), { threshold: 0.1, rootMargin: '0px 0px -45px 0px' });
     document.querySelectorAll('.r').forEach(el => obs.observe(el));
 
-    // Clock
     function tick() {
       const t = new Date().toLocaleTimeString('id-ID', { hour:'2-digit', minute:'2-digit', timeZone:'Asia/Jakarta' });
       const clock = document.getElementById('clock');
@@ -40,22 +40,21 @@ const { title, description = 'AVORIX LAB — Bot Automation, Source Code & Digit
     }
     tick(); setInterval(tick, 1000);
 
-    // Mobile menu
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     menuBtn?.addEventListener('click', () => {
       const open = mobileMenu?.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-expanded', String(!!open));
     });
     mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
       mobileMenu.classList.remove('open');
       menuBtn?.setAttribute('aria-expanded', 'false');
     }));
 
-    // FAQ
     document.querySelectorAll('.faq-q').forEach(q => {
       q.addEventListener('click', () => {
-        const item = q.parentElement!;
+        const item = q.parentElement;
+        if (!item) return;
         const isActive = item.classList.contains('active');
         document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
         if (!isActive) item.classList.add('active');
