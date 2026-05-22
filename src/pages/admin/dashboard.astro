@@ -1,0 +1,265 @@
+---
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+const totalArticles = posts.length;
+---
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — AVORIX LAB Admin</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body class="min-h-screen">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 h-[64px] px-8 border-b border-line bg-[rgba(7,7,9,0.92)] backdrop-blur-[22px]">
+    <div class="max-w-[1180px] mx-auto h-full flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="w-[11px] h-[11px] rounded bg-accent shadow-[0_0_20px_rgba(0,212,255,0.3)]"></span>
+        <span class="font-display text-[.88rem] font-extrabold tracking-[.05em] text-white">AVORIX LAB Admin</span>
+      </div>
+      <button id="logoutBtn" class="font-mono text-[.74rem] text-muted2 hover:text-red-400 transition-colors bg-transparent border border-line2 rounded-lg px-4 py-2 cursor-pointer">
+        Logout
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="pt-[96px] pb-20 px-8 max-w-[1180px] mx-auto">
+
+    <!-- Stats -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+      <div class="bg-card border border-line rounded-2xl p-6">
+        <p class="font-mono text-[.7rem] text-muted2 tracking-[.06em] uppercase mb-1">Total Articles</p>
+        <p class="font-display text-[2rem] font-extrabold text-white">{totalArticles}</p>
+      </div>
+      <div class="bg-card border border-line rounded-2xl p-6">
+        <p class="font-mono text-[.7rem] text-muted2 tracking-[.06em] uppercase mb-1">Status</p>
+        <p class="font-display text-[1rem] font-bold text-accent flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-accent animate-blink"></span> Online
+        </p>
+      </div>
+      <div class="bg-card border border-line rounded-2xl p-6">
+        <p class="font-mono text-[.7rem] text-muted2 tracking-[.06em] uppercase mb-1">Platform</p>
+        <p class="font-display text-[1rem] font-bold text-white">Cloudflare Pages</p>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="font-display text-[1.2rem] font-bold text-white">Artikel</h2>
+      <button id="newArticleBtn" class="bg-accent text-[var(--color-bg)] font-bold text-[.82rem] px-5 py-2.5 rounded-xl hover:bg-accent2 transition-colors cursor-pointer border-none">
+        + New Article
+      </button>
+    </div>
+
+    <!-- Article Form (hidden by default) -->
+    <div id="articleForm" class="hidden bg-card border border-accent rounded-2xl p-8 mb-8">
+      <h3 class="font-display font-bold text-[1rem] mb-6 text-white" id="formTitle">New Article</h3>
+      <form id="articleFormEl">
+        <input type="hidden" id="editId" value="" />
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block font-mono text-[.7rem] text-muted2 tracking-[.06em] uppercase mb-2">Title</label>
+            <input type="text" id="artTitle" required class="w-full bg-[var(--color-bg)] border border-line2 rounded-xl px-4 py-3 text-white text-[.86rem] focus:outline-none focus:border-accent transition-colors" />
+          </div>
+          <div>
+            <label class="block font-mono text-[.7rem] text-muted2 tracking-[.06em] uppercase mb-2">Tag</label>
+            <select id="artTag" class="w-full bg-[var(--color-bg)] border border-line2 rounded-xl px-4 py-3 text-white text-[.86rem] focus:outline-none focus:border-accent transition-colors">
+              <option value="AI Update">AI Update</option>
+              <option value="Bansos AI">Bansos AI</option>
+              <option value="Tutorial">Tutorial</option>
+              <option value="Tools">Tools</option>
+            </select>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="block font-mono text-[.7rem] text-muted2 tracking-[.06em] uppercase mb-2">Description</label>
+          <input type="text" id="artDesc" required class="w-full bg-[var(--color-bg)] border border-line2 rounded-xl px-4 py-3 text-white text-[.86rem] focus:outline-none focus:border-accent transition-colors" />
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="block font-mono text-[.7rem] text-muted2 tracking-[.06em] uppercase mb-2">Date</label>
+            <input type="date" id="artDate" required class="w-full bg-[var(--color-bg)] border border-line2 rounded-xl px-4 py-3 text-white text-[.86rem] focus:outline-none focus:border-accent transition-colors" />
+          </div>
+          <div>
+            <label class="block font-mono text-[.7rem] text-muted2 tracking-[.06em] uppercase mb-2">Emoji</label>
+            <input type="text" id="artEmoji" placeholder="🤖" class="w-full bg-[var(--color-bg)] border border-line2 rounded-xl px-4 py-3 text-white text-[.86rem] focus:outline-none focus:border-accent transition-colors" />
+          </div>
+        </div>
+        <div class="mb-6">
+          <label class="block font-mono text-[.7rem] text-muted2 tracking-[.06em] uppercase mb-2">Content (Markdown)</label>
+          <textarea id="artContent" rows="12" required class="w-full bg-[var(--color-bg)] border border-line2 rounded-xl px-4 py-3 text-white text-[.86rem] font-mono focus:outline-none focus:border-accent transition-colors resize-y"></textarea>
+        </div>
+        <div class="flex items-center gap-3">
+          <button type="submit" class="bg-accent text-[var(--color-bg)] font-bold text-[.82rem] px-6 py-3 rounded-xl hover:bg-accent2 transition-colors cursor-pointer border-none">
+            Save Article
+          </button>
+          <button type="button" id="cancelBtn" class="text-muted2 font-mono text-[.82rem] px-6 py-3 rounded-xl border border-line2 hover:border-accent hover:text-accent transition-colors cursor-pointer bg-transparent">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Articles Table -->
+    <div class="bg-card border border-line rounded-2xl overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="border-b border-line">
+              <th class="text-left font-mono text-[.7rem] text-muted2 tracking-[.06em] uppercase p-4">Title</th>
+              <th class="text-left font-mono text-[.7rem] text-muted2 tracking-[.06em] uppercase p-4">Tag</th>
+              <th class="text-left font-mono text-[.7rem] text-muted2 tracking-[.06em] uppercase p-4">Date</th>
+              <th class="text-right font-mono text-[.7rem] text-muted2 tracking-[.06em] uppercase p-4">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {posts.map(post => (
+              <tr class="border-b border-line hover:bg-[var(--color-bg2)] transition-colors">
+                <td class="p-4">
+                  <span class="text-white text-[.88rem] font-medium">{post.data.title}</span>
+                </td>
+                <td class="p-4">
+                  <span class="font-mono text-[.72rem] text-accent bg-accent-dim px-2 py-1 rounded-full">{post.data.tag}</span>
+                </td>
+                <td class="p-4">
+                  <span class="font-mono text-[.76rem] text-muted2">{post.data.date}</span>
+                </td>
+                <td class="p-4 text-right">
+                  <button class="edit-btn font-mono text-[.74rem] text-accent hover:text-accent2 transition-colors bg-transparent border-none cursor-pointer mr-3" data-id={post.id}>
+                    Edit
+                  </button>
+                  <button class="delete-btn font-mono text-[.74rem] text-red-400 hover:text-red-300 transition-colors bg-transparent border-none cursor-pointer" data-id={post.id}>
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Check auth
+    const cookies = document.cookie.split(';').map(c => c.trim());
+    const hasSession = cookies.some(c => c.startsWith('admin_session='));
+    if (!hasSession) {
+      window.location.href = '/admin';
+    }
+
+    // Logout
+    document.getElementById('logoutBtn')?.addEventListener('click', () => {
+      document.cookie = 'admin_session=; Max-Age=0; path=/';
+      window.location.href = '/admin';
+    });
+
+    // New Article form toggle
+    const articleForm = document.getElementById('articleForm') as HTMLElement;
+    const formTitle = document.getElementById('formTitle') as HTMLElement;
+
+    document.getElementById('newArticleBtn')?.addEventListener('click', () => {
+      articleForm.classList.remove('hidden');
+      formTitle.textContent = 'New Article';
+      (document.getElementById('editId') as HTMLInputElement).value = '';
+      (document.getElementById('articleFormEl') as HTMLFormElement).reset();
+    });
+
+    document.getElementById('cancelBtn')?.addEventListener('click', () => {
+      articleForm.classList.add('hidden');
+    });
+
+    // Submit form
+    const formEl = document.getElementById('articleFormEl') as HTMLFormElement;
+    formEl.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const editId = (document.getElementById('editId') as HTMLInputElement).value;
+      const payload = {
+        title: (document.getElementById('artTitle') as HTMLInputElement).value,
+        tag: (document.getElementById('artTag') as HTMLSelectElement).value,
+        description: (document.getElementById('artDesc') as HTMLInputElement).value,
+        date: (document.getElementById('artDate') as HTMLInputElement).value,
+        emoji: (document.getElementById('artEmoji') as HTMLInputElement).value || '📝',
+        content: (document.getElementById('artContent') as HTMLTextAreaElement).value,
+      };
+
+      const url = editId ? `/api/articles/${editId}` : '/api/articles';
+      const method = 'POST';
+
+      try {
+        const res = await fetch(url, {
+          method,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        if (res.ok) {
+          window.location.reload();
+        } else {
+          alert('Error saving article');
+        }
+      } catch (err) {
+        alert('Error saving article');
+      }
+    });
+
+    // Delete
+    document.querySelectorAll('.delete-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const id = btn.getAttribute('data-id');
+        if (!confirm('Hapus artikel ini?')) return;
+
+        try {
+          const res = await fetch(`/api/articles/${id}`, { method: 'DELETE' });
+          if (res.ok) {
+            window.location.reload();
+          } else {
+            alert('Error deleting article');
+          }
+        } catch (err) {
+          alert('Error deleting article');
+        }
+      });
+    });
+
+    // Edit
+    document.querySelectorAll('.edit-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const id = btn.getAttribute('data-id');
+        articleForm.classList.remove('hidden');
+        formTitle.textContent = 'Edit Article';
+        (document.getElementById('editId') as HTMLInputElement).value = id || '';
+
+        try {
+          const res = await fetch(`/api/articles/${id}`);
+          if (res.ok) {
+            const data = await res.json();
+            (document.getElementById('artTitle') as HTMLInputElement).value = data.title || '';
+            (document.getElementById('artTag') as HTMLSelectElement).value = data.tag || 'AI Update';
+            (document.getElementById('artDesc') as HTMLInputElement).value = data.description || '';
+            (document.getElementById('artDate') as HTMLInputElement).value = data.date || '';
+            (document.getElementById('artEmoji') as HTMLInputElement).value = data.emoji || '';
+            (document.getElementById('artContent') as HTMLTextAreaElement).value = data.content || '';
+          }
+        } catch (err) {
+          alert('Error loading article');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
+<style is:global>
+  @import '../../styles/global.css';
+</style>

@@ -1,0 +1,35 @@
+---
+const currentPath = Astro.url.pathname;
+const isHome = currentPath === '/';
+const prefix = isHome ? '' : '/';
+---
+<nav class="fixed top-0 left-0 right-0 z-100 h-[68px] px-8 border-b border-line bg-[rgba(7,7,9,0.82)] backdrop-blur-[22px]">
+  <div class="w-full max-w-[1180px] mx-auto h-full flex items-center justify-between gap-4">
+    <a class="font-display text-[.95rem] font-extrabold tracking-[.055em] text-white no-underline flex items-center gap-2.5" href={isHome ? '#home' : '/'}>
+      <span class="w-[13px] h-[13px] rounded bg-accent shadow-[0_0_28px_rgba(0,212,255,0.28)]"></span>
+      <span class="glitch-txt">AVORIX LAB</span>
+    </a>
+    <div class="hidden md:flex gap-8 font-mono text-[.72rem] tracking-[.07em]">
+      <a href={`${prefix}#products`} class="text-muted2 no-underline hover:text-white transition-colors">Products</a>
+      <a href={`${prefix}#tools`} class="text-muted2 no-underline hover:text-white transition-colors">Tools</a>
+      <a href="/blog" class="text-muted2 no-underline hover:text-white transition-colors">Insights</a>
+      <a href={`${prefix}#process`} class="text-muted2 no-underline hover:text-white transition-colors">Flow</a>
+      <a href={`${prefix}#faq`} class="text-muted2 no-underline hover:text-white transition-colors">FAQ</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="hidden md:flex items-center gap-2 font-mono text-[.68rem] text-muted2 tracking-[.05em]">
+        <span class="w-1.5 h-1.5 rounded-full bg-accent animate-blink"></span>Ready to Build
+      </div>
+      <a href="https://wa.me/6281234567890?text=Halo%20AVORIX%20LAB" class="hidden md:block text-[var(--color-bg)] bg-white no-underline rounded-full px-4 py-2 text-[.78rem] font-bold hover:-translate-y-0.5 hover:bg-accent transition-all">Order Now</a>
+      <button class="md:hidden bg-transparent border border-line2 text-white rounded-[10px] px-3 py-2" id="menuBtn" aria-label="Buka menu" aria-expanded="false">&#9776;</button>
+    </div>
+  </div>
+</nav>
+
+<div class="hidden fixed top-[68px] left-4 right-4 z-99 border border-line2 bg-[rgba(16,16,20,0.94)] backdrop-blur-[22px] rounded-2xl p-3 shadow-[0_20px_60px_rgba(0,0,0,0.45)] [&.open]:block" id="mobileMenu">
+  <a href={`${prefix}#products`} class="block text-white no-underline p-4 rounded-xl font-mono text-[.8rem] hover:bg-[var(--color-bg2)]">Products</a>
+  <a href="/blog" class="block text-white no-underline p-4 rounded-xl font-mono text-[.8rem] hover:bg-[var(--color-bg2)]">Insights</a>
+  <a href={`${prefix}#process`} class="block text-white no-underline p-4 rounded-xl font-mono text-[.8rem] hover:bg-[var(--color-bg2)]">Order Flow</a>
+  <a href={`${prefix}#faq`} class="block text-white no-underline p-4 rounded-xl font-mono text-[.8rem] hover:bg-[var(--color-bg2)]">FAQ</a>
+  <a href="https://wa.me/6281234567890" class="block text-accent no-underline p-4 rounded-xl font-mono text-[.8rem] hover:bg-[var(--color-bg2)]">Order via WhatsApp</a>
+</div>
