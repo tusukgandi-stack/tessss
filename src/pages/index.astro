@@ -1,0 +1,289 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 3);
+---
+
+<Base title="AVORIX LAB — Bot Automation, Source Code & Digital Tools">
+
+  <!-- Hero -->
+  <section id="home" class="pt-36 pb-20 px-8 max-w-[1180px] mx-auto text-center">
+    <div class="r">
+      <p class="font-mono text-[.72rem] tracking-[.12em] text-accent mb-4 uppercase">Digital Products & Automation</p>
+      <h1 class="font-display text-[2.8rem] md:text-[4rem] font-extrabold leading-[1.08] tracking-[-0.03em] mb-6">
+        Solusi digital<br/>yang <span class="text-accent">siap digunakan</span>
+      </h1>
+      <p class="text-muted2 text-[1.05rem] max-w-[520px] mx-auto mb-10 leading-relaxed">
+        Bot automation, source code, tools premium — semua tersedia dan siap deploy untuk kebutuhan project kamu.
+      </p>
+      <div class="flex items-center justify-center gap-4 flex-wrap">
+        <a href="https://wa.me/6281234567890?text=Halo%20AVORIX%20LAB" class="inline-flex items-center gap-2 bg-white text-[var(--color-bg)] font-bold text-[.88rem] px-7 py-3.5 rounded-full hover:-translate-y-0.5 hover:bg-accent transition-all no-underline">
+          💬 WhatsApp
+        </a>
+        <a href="#products" class="inline-flex items-center gap-2 border border-line2 text-white font-medium text-[.88rem] px-7 py-3.5 rounded-full hover:border-accent hover:text-accent transition-all no-underline">
+          Lihat Produk ↓
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Section -->
+  <section class="py-16 px-8 max-w-[1180px] mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="r bg-card border border-line rounded-2xl p-6">
+        <div class="text-2xl mb-3">⚡</div>
+        <h3 class="font-display font-bold text-[.95rem] mb-2">Siap digunakan</h3>
+        <p class="text-muted2 text-[.82rem] leading-relaxed">Produk sudah tested & siap deploy langsung tanpa setup ribet.</p>
+      </div>
+      <div class="r bg-card border border-line rounded-2xl p-6">
+        <div class="text-2xl mb-3">🔧</div>
+        <h3 class="font-display font-bold text-[.95rem] mb-2">Dapat disesuaikan</h3>
+        <p class="text-muted2 text-[.82rem] leading-relaxed">Source code terbuka, bisa kamu modifikasi sesuai kebutuhan.</p>
+      </div>
+      <div class="r bg-card border border-line rounded-2xl p-6">
+        <div class="text-2xl mb-3">🛟</div>
+        <h3 class="font-display font-bold text-[.95rem] mb-2">Dukungan teknis</h3>
+        <p class="text-muted2 text-[.82rem] leading-relaxed">Free konsultasi & bantuan setup via WhatsApp.</p>
+      </div>
+      <div class="r bg-card border border-line rounded-2xl p-6">
+        <div class="text-2xl mb-3">💰</div>
+        <h3 class="font-display font-bold text-[.95rem] mb-2">Harga fleksibel</h3>
+        <p class="text-muted2 text-[.82rem] leading-relaxed">Mulai dari 50K, bisa nego & paket bundling.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Bento Grid -->
+  <section id="products" class="py-20 px-8 max-w-[1180px] mx-auto">
+    <div class="r text-center mb-12">
+      <p class="font-mono text-[.72rem] tracking-[.12em] text-accent mb-3 uppercase">Products</p>
+      <h2 class="font-display text-[2rem] md:text-[2.6rem] font-extrabold tracking-[-0.02em]">Produk Digital Kami</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="r bg-card border border-line rounded-2xl p-8 hover:border-accent transition-colors group">
+        <div class="flex items-start justify-between mb-4">
+          <span class="text-3xl">🤖</span>
+          <span class="font-mono text-accent text-[.78rem] bg-accent-dim px-3 py-1 rounded-full">Mulai 50K</span>
+        </div>
+        <h3 class="font-display font-bold text-[1.2rem] mb-2 group-hover:text-accent transition-colors">Bot Automation</h3>
+        <p class="text-muted2 text-[.88rem] leading-relaxed">WhatsApp bot, Telegram bot, Discord bot — auto-reply, scraping, notification system.</p>
+      </div>
+      <div class="r bg-card border border-line rounded-2xl p-8 hover:border-accent transition-colors group">
+        <div class="flex items-start justify-between mb-4">
+          <span class="text-3xl">💻</span>
+          <span class="font-mono text-accent text-[.78rem] bg-accent-dim px-3 py-1 rounded-full">Mulai 75K</span>
+        </div>
+        <h3 class="font-display font-bold text-[1.2rem] mb-2 group-hover:text-accent transition-colors">Source Code Web</h3>
+        <p class="text-muted2 text-[.88rem] leading-relaxed">Landing page, portfolio, dashboard admin — Next.js, Astro, React siap pakai.</p>
+      </div>
+      <div class="r bg-card border border-line rounded-2xl p-8 hover:border-accent transition-colors group">
+        <div class="flex items-start justify-between mb-4">
+          <span class="text-3xl">🧠</span>
+          <span class="font-mono text-accent text-[.78rem] bg-accent-dim px-3 py-1 rounded-full">Nego</span>
+        </div>
+        <h3 class="font-display font-bold text-[1.2rem] mb-2 group-hover:text-accent transition-colors">AI & Premium Tools</h3>
+        <p class="text-muted2 text-[.88rem] leading-relaxed">Akses tools AI premium, API keys, dan resource digital untuk productivity kamu.</p>
+      </div>
+      <div class="r bg-card border border-line rounded-2xl p-8 hover:border-accent transition-colors group">
+        <div class="flex items-start justify-between mb-4">
+          <span class="text-3xl">🎯</span>
+          <span class="font-mono text-accent text-[.78rem] bg-accent-dim px-3 py-1 rounded-full">Custom</span>
+        </div>
+        <h3 class="font-display font-bold text-[1.2rem] mb-2 group-hover:text-accent transition-colors">Custom Project</h3>
+        <p class="text-muted2 text-[.88rem] leading-relaxed">Butuh sesuatu yang spesifik? Kita bisa bangun dari nol sesuai brief kamu.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools Grid -->
+  <section id="tools" class="py-20 px-8 max-w-[1180px] mx-auto">
+    <div class="r text-center mb-12">
+      <p class="font-mono text-[.72rem] tracking-[.12em] text-accent mb-3 uppercase">Free Tools</p>
+      <h2 class="font-display text-[2rem] md:text-[2.6rem] font-extrabold tracking-[-0.02em]">Tools Gratis</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="r bg-card border border-line rounded-2xl p-6 text-center hover:border-accent transition-colors">
+        <div class="text-3xl mb-3">🔗</div>
+        <h3 class="font-display font-bold text-[.92rem] mb-1">Link Shortener</h3>
+        <p class="text-muted2 text-[.78rem]">Perpendek URL dengan custom alias</p>
+      </div>
+      <div class="r bg-card border border-line rounded-2xl p-6 text-center hover:border-accent transition-colors">
+        <div class="text-3xl mb-3">🖼️</div>
+        <h3 class="font-display font-bold text-[.92rem] mb-1">Image Converter</h3>
+        <p class="text-muted2 text-[.78rem]">Convert gambar ke WebP, PNG, JPG</p>
+      </div>
+      <div class="r bg-card border border-line rounded-2xl p-6 text-center hover:border-accent transition-colors">
+        <div class="text-3xl mb-3">🔑</div>
+        <h3 class="font-display font-bold text-[.92rem] mb-1">Pass Generator</h3>
+        <p class="text-muted2 text-[.78rem]">Generate password aman & random</p>
+      </div>
+      <div class="r bg-card border border-line rounded-2xl p-6 text-center hover:border-accent transition-colors">
+        <div class="text-3xl mb-3">📋</div>
+        <h3 class="font-display font-bold text-[.92rem] mb-1">JSON Formatter</h3>
+        <p class="text-muted2 text-[.78rem]">Format & validate JSON online</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Articles -->
+  <section class="py-20 px-8 max-w-[1180px] mx-auto">
+    <div class="r text-center mb-12">
+      <p class="font-mono text-[.72rem] tracking-[.12em] text-accent mb-3 uppercase">Insights</p>
+      <h2 class="font-display text-[2rem] md:text-[2.6rem] font-extrabold tracking-[-0.02em]">Artikel Terbaru</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {posts.map(post => (
+        <a href={`/blog/${post.id}`} class="r bg-card border border-line rounded-2xl p-6 hover:border-accent transition-colors no-underline group block">
+          <div class="text-3xl mb-3">{post.data.emoji || '📝'}</div>
+          <span class="font-mono text-[.68rem] text-accent tracking-[.08em] uppercase">{post.data.tag}</span>
+          <h3 class="font-display font-bold text-[1rem] mt-2 mb-2 text-white group-hover:text-accent transition-colors">{post.data.title}</h3>
+          <p class="text-muted2 text-[.82rem] leading-relaxed line-clamp-2 mb-3">{post.data.description}</p>
+          <span class="font-mono text-[.7rem] text-muted">{post.data.date}</span>
+        </a>
+      ))}
+    </div>
+    <div class="text-center mt-8">
+      <a href="/blog" class="inline-flex items-center gap-2 font-mono text-[.82rem] text-accent hover:text-accent2 transition-colors no-underline">
+        Lihat semua artikel →
+      </a>
+    </div>
+  </section>
+
+  <!-- Tech Stack Marquee -->
+  <section class="py-16 overflow-hidden border-y border-line">
+    <div class="flex animate-[scroll-stack_20s_linear_infinite] w-max">
+      <div class="flex items-center gap-12 px-6">
+        <span class="font-mono text-[.82rem] text-muted2 whitespace-nowrap">TypeScript</span>
+        <span class="font-mono text-[.82rem] text-muted2 whitespace-nowrap">Next.js</span>
+        <span class="font-mono text-[.82rem] text-muted2 whitespace-nowrap">Python</span>
+        <span class="font-mono text-[.82rem] text-muted2 whitespace-nowrap">Tailwind CSS</span>
+        <span class="font-mono text-[.82rem] text-muted2 whitespace-nowrap">React</span>
+        <span class="font-mono text-[.82rem] text-muted2 whitespace-nowrap">Node.js</span>
+        <span class="font-mono text-[.82rem] text-muted2 whitespace-nowrap">Astro</span>
+        <span class="font-mono text-[.82rem] text-muted2 whitespace-nowrap">Cloudflare</span>
+      </div>
+      <div class="flex items-center gap-12 px-6">
+        <span class="font-mono text-[.82rem] text-muted2 whitespace-nowrap">TypeScript</span>
+        <span class="font-mono text-[.82rem] text-muted2 whitespace-nowrap">Next.js</span>
+        <span class="font-mono text-[.82rem] text-muted2 whitespace-nowrap">Python</span>
+        <span class="font-mono text-[.82rem] text-muted2 whitespace-nowrap">Tailwind CSS</span>
+        <span class="font-mono text-[.82rem] text-muted2 whitespace-nowrap">React</span>
+        <span class="font-mono text-[.82rem] text-muted2 whitespace-nowrap">Node.js</span>
+        <span class="font-mono text-[.82rem] text-muted2 whitespace-nowrap">Astro</span>
+        <span class="font-mono text-[.82rem] text-muted2 whitespace-nowrap">Cloudflare</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order Flow -->
+  <section id="process" class="py-20 px-8 max-w-[1180px] mx-auto">
+    <div class="r text-center mb-12">
+      <p class="font-mono text-[.72rem] tracking-[.12em] text-accent mb-3 uppercase">How it Works</p>
+      <h2 class="font-display text-[2rem] md:text-[2.6rem] font-extrabold tracking-[-0.02em]">Cara Order</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="r bg-card border border-line rounded-2xl p-6 relative">
+        <span class="font-mono text-accent text-[.72rem] absolute top-4 right-4">01</span>
+        <div class="text-2xl mb-3">💬</div>
+        <h3 class="font-display font-bold text-[.92rem] mb-2">Hubungi Kami</h3>
+        <p class="text-muted2 text-[.78rem] leading-relaxed">Chat via WhatsApp / Telegram, jelaskan kebutuhanmu.</p>
+      </div>
+      <div class="r bg-card border border-line rounded-2xl p-6 relative">
+        <span class="font-mono text-accent text-[.72rem] absolute top-4 right-4">02</span>
+        <div class="text-2xl mb-3">📋</div>
+        <h3 class="font-display font-bold text-[.92rem] mb-2">Diskusi & Penawaran</h3>
+        <p class="text-muted2 text-[.78rem] leading-relaxed">Kita diskusi detail, lalu kasih penawaran harga terbaik.</p>
+      </div>
+      <div class="r bg-card border border-line rounded-2xl p-6 relative">
+        <span class="font-mono text-accent text-[.72rem] absolute top-4 right-4">03</span>
+        <div class="text-2xl mb-3">⚙️</div>
+        <h3 class="font-display font-bold text-[.92rem] mb-2">Proses Pengerjaan</h3>
+        <p class="text-muted2 text-[.78rem] leading-relaxed">Setelah deal, langsung dikerjakan dengan update progress.</p>
+      </div>
+      <div class="r bg-card border border-line rounded-2xl p-6 relative">
+        <span class="font-mono text-accent text-[.72rem] absolute top-4 right-4">04</span>
+        <div class="text-2xl mb-3">🚀</div>
+        <h3 class="font-display font-bold text-[.92rem] mb-2">Delivery & Support</h3>
+        <p class="text-muted2 text-[.78rem] leading-relaxed">File dikirim + free bantuan setup & konsultasi teknis.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20 px-8 max-w-[1180px] mx-auto">
+    <div class="r text-center mb-12">
+      <p class="font-mono text-[.72rem] tracking-[.12em] text-accent mb-3 uppercase">FAQ</p>
+      <h2 class="font-display text-[2rem] md:text-[2.6rem] font-extrabold tracking-[-0.02em]">Pertanyaan Umum</h2>
+    </div>
+    <div class="max-w-[720px] mx-auto flex flex-col gap-3">
+      <div class="r faq-item bg-card border border-line rounded-2xl overflow-hidden">
+        <button class="faq-q w-full text-left p-6 flex items-center justify-between gap-4 bg-transparent border-none text-white cursor-pointer">
+          <span class="font-display font-bold text-[.92rem]">Apakah bisa request fitur custom?</span>
+          <span class="text-accent text-xl transition-transform">+</span>
+        </button>
+        <div class="faq-a max-h-0 overflow-hidden transition-all duration-300 px-6">
+          <p class="text-muted2 text-[.88rem] leading-relaxed pb-6">Tentu! Semua produk bisa disesuaikan. Hubungi kami via WhatsApp untuk diskusi fitur tambahan yang kamu butuhkan.</p>
+        </div>
+      </div>
+      <div class="r faq-item bg-card border border-line rounded-2xl overflow-hidden">
+        <button class="faq-q w-full text-left p-6 flex items-center justify-between gap-4 bg-transparent border-none text-white cursor-pointer">
+          <span class="font-display font-bold text-[.92rem]">Apakah source code boleh dimodifikasi?</span>
+          <span class="text-accent text-xl transition-transform">+</span>
+        </button>
+        <div class="faq-a max-h-0 overflow-hidden transition-all duration-300 px-6">
+          <p class="text-muted2 text-[.88rem] leading-relaxed pb-6">Ya, setelah pembelian kamu mendapat full source code dan bebas modifikasi sesuai kebutuhan. Tidak ada batasan penggunaan.</p>
+        </div>
+      </div>
+      <div class="r faq-item bg-card border border-line rounded-2xl overflow-hidden">
+        <button class="faq-q w-full text-left p-6 flex items-center justify-between gap-4 bg-transparent border-none text-white cursor-pointer">
+          <span class="font-display font-bold text-[.92rem]">Apakah ada bantuan setup / instalasi?</span>
+          <span class="text-accent text-xl transition-transform">+</span>
+        </button>
+        <div class="faq-a max-h-0 overflow-hidden transition-all duration-300 px-6">
+          <p class="text-muted2 text-[.88rem] leading-relaxed pb-6">Setiap pembelian sudah termasuk free bantuan setup. Kami bantu sampai produk berjalan di server/hosting kamu.</p>
+        </div>
+      </div>
+      <div class="r faq-item bg-card border border-line rounded-2xl overflow-hidden">
+        <button class="faq-q w-full text-left p-6 flex items-center justify-between gap-4 bg-transparent border-none text-white cursor-pointer">
+          <span class="font-display font-bold text-[.92rem]">Berapa lama timeline pengerjaan?</span>
+          <span class="text-accent text-xl transition-transform">+</span>
+        </button>
+        <div class="faq-a max-h-0 overflow-hidden transition-all duration-300 px-6">
+          <p class="text-muted2 text-[.88rem] leading-relaxed pb-6">Untuk produk ready-made, bisa langsung dikirim. Custom project biasanya 3-7 hari tergantung kompleksitas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 px-8 max-w-[1180px] mx-auto text-center">
+    <div class="r bg-card border border-accent rounded-2xl p-12">
+      <h2 class="font-display text-[1.8rem] md:text-[2.2rem] font-extrabold mb-4">Siap memulai project?</h2>
+      <p class="text-muted2 text-[1rem] mb-8 max-w-[420px] mx-auto">Hubungi kami sekarang dan dapatkan solusi digital terbaik untuk kebutuhanmu.</p>
+      <div class="flex items-center justify-center gap-4 flex-wrap">
+        <a href="https://wa.me/6281234567890?text=Halo%20AVORIX%20LAB" class="inline-flex items-center gap-2 bg-white text-[var(--color-bg)] font-bold text-[.88rem] px-7 py-3.5 rounded-full hover:-translate-y-0.5 hover:bg-accent transition-all no-underline">
+          💬 WhatsApp
+        </a>
+        <a href="https://t.me/avorixlab" class="inline-flex items-center gap-2 border border-line2 text-white font-medium text-[.88rem] px-7 py-3.5 rounded-full hover:border-accent hover:text-accent transition-all no-underline">
+          Telegram
+        </a>
+        <a href="https://discord.gg/avorixlab" class="inline-flex items-center gap-2 border border-line2 text-white font-medium text-[.88rem] px-7 py-3.5 rounded-full hover:border-accent hover:text-accent transition-all no-underline">
+          Discord
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .faq-item.active .faq-a {
+    max-height: 200px;
+  }
+  .faq-item.active .faq-q span:last-child {
+    transform: rotate(45deg);
+  }
+</style>

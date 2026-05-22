@@ -1,0 +1,46 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Base title={`${post.data.title} — AVORIX LAB`} description={post.data.description} ogType="article">
+
+  <section class="pt-36 pb-20 px-8 max-w-[760px] mx-auto">
+    <a href="/blog" class="inline-flex items-center gap-2 font-mono text-[.78rem] text-muted2 hover:text-accent transition-colors no-underline mb-8">
+      ← Kembali ke Blog
+    </a>
+
+    <div class="r mb-8">
+      <span class="font-mono text-[.72rem] text-accent tracking-[.08em] uppercase bg-accent-dim px-3 py-1 rounded-full">{post.data.tag}</span>
+      <h1 class="font-display text-[1.8rem] md:text-[2.4rem] font-extrabold leading-tight tracking-[-0.02em] mt-4 mb-4">{post.data.title}</h1>
+      <div class="flex items-center gap-4 flex-wrap">
+        <span class="font-mono text-[.74rem] text-muted">{post.data.date}</span>
+        {post.data.readTime && <span class="font-mono text-[.74rem] text-muted2">{post.data.readTime}</span>}
+      </div>
+    </div>
+
+    <div class="article-content r">
+      <Content />
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-line">
+      <a href="/blog" class="inline-flex items-center gap-2 font-mono text-[.82rem] text-accent hover:text-accent2 transition-colors no-underline">
+        ← Baca artikel lainnya
+      </a>
+    </div>
+  </section>
+
+</Base>
