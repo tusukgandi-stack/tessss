@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AVORIX LAB — Bot Automation, Source Code & Digital Tools</title>
+  <meta name="description" content="AVORIX LAB menyediakan bot automation, source code web, tools digital, dan custom project siap pakai dengan support dan garansi." />
+  <meta name="theme-color" content="#070709" />
+  <meta property="og:title" content="AVORIX LAB — Digital Tools & Automation" />
+  <meta property="og:description" content="Produk digital siap pakai: bot automation, source code web, tools gratis, dan custom project." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <!-- BOOT SCREEN -->
+  <div id="boot-screen">
+    <div class="boot-text" id="bootText"></div>
+  </div>
+
+  <canvas id="matrix-canvas"></canvas>
+  <div class="cursor" id="cur"></div>
+  <div class="cursor-ring" id="curRing"></div>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="#home" aria-label="AVORIX LAB Home"><span class="glitch-txt" data-text="AVORIX LAB">AVORIX LAB</span></a>
+      <div class="nav-links" aria-label="Main Navigation">
+        <a href="#products">Products</a>
+        <a href="#tools">Tools</a>
+        <a href="#articles">Insights</a>
+        <a href="#process">Flow</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="nav-actions">
+        <div class="nav-status"><span class="dot"></span>Ready to Build</div>
+        <a class="nav-cta" href="https://wa.me/6281234567890?text=Halo%20AVORIX%20LAB%2C%20saya%20mau%20order%20/%20konsultasi%20produk%20digital">Order Now</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Buka menu" aria-expanded="false">&#9776;</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#products">Products</a>
+    <a href="#tools">Free Tools</a>
+    <a href="#articles">Insights</a>
+    <a href="#process">Order Flow</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://wa.me/6281234567890?text=Halo%20AVORIX%20LAB%2C%20saya%20mau%20order%20/%20konsultasi%20produk%20digital">Order via WhatsApp</a>
+  </div>
+
+
+  <section class="hero" id="home">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-wrap">
+      <div class="hero-left">
+        <p class="eyebrow">Automate &middot; Connect &middot; Elevate</p>
+        <h1 class="hero-h">Solusi digital yang <span class="accent">siap digunakan</span>, <span class="muted">dibangun untuk kebutuhan nyata.</span></h1>
+        <p class="hero-p">AVORIX LAB membantu menghadirkan bot automation, source code, web tools, dan project custom yang siap digunakan, tertata rapi, serta dapat dikembangkan sesuai kebutuhan.</p>
+        <div class="hero-acts">
+          <a href="https://wa.me/6281234567890?text=Halo%20AVORIX%20LAB%2C%20saya%20mau%20lihat%20produk%20yang%20ready" class="btn-fill">Order via WhatsApp &#8599;</a>
+          <a href="#products" class="btn-line">Lihat Produk</a>
+        </div>
+        <div class="micro-trust">
+          <span>Garansi support</span>
+          <span>Bisa custom</span>
+          <span>Deploy ready</span>
+          <span>Fast response</span>
+        </div>
+      </div>
+
+      <div class="hero-graphic" aria-hidden="true">
+        <div class="float-tag ft-1">Deploy Ready</div>
+        <div class="float-tag ft-2">Custom Build</div>
+        <div class="float-tag ft-3">Support Included</div>
+        <div class="glass-term">
+          <div class="term-head">
+            <div class="tdot"></div><div class="tdot"></div><div class="tdot"></div>
+            <span class="term-title">avorix-lab/system.order</span>
+          </div>
+          <div class="term-body">
+            <div><span class="c-kw">const</span> <span class="c-vr">project</span> = <span class="c-kw">await</span> <span class="c-fn">AvorixLab</span>.<span class="c-fn">build</span>({</div>
+            <div>&nbsp;&nbsp;type: <span class="c-st">'Bot Automation'</span>,</div>
+            <div>&nbsp;&nbsp;delivery: <span class="c-st">'Deploy Ready'</span>,</div>
+            <div>&nbsp;&nbsp;support: <span class="c-st">'Included'</span>,</div>
+            <div>&nbsp;&nbsp;custom: <span class="c-kw">true</span></div>
+            <div>});</div>
+            <br />
+            <div class="c-cm">// Produk dicek, dirapikan, lalu dikirim.</div>
+            <div class="c-cm">// Cocok buat jualan, komunitas, dan workflow harian.</div>
+            <div style="margin-top:10px;color:var(--accent)">&gt; ready_to_launch <span style="animation:blink 1s infinite">&#9608;</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="divider" id="trust">
+    <div class="wrap">
+      <div class="shead r">
+        <div><div class="snum">01 — Why Us</div><h2 class="sh">Lebih dari sekadar produk digital.</h2></div>
+        <p class="sdesc">Setiap produk disiapkan dengan struktur yang jelas, mudah digunakan, dan didukung layanan after-sales.</p>
+      </div>
+      <div class="trust-grid r d1">
+        <div class="trust-card"><div class="trust-icon">01</div><h3>Siap digunakan</h3><p>Produk disiapkan agar dapat langsung dijalankan dengan konfigurasi yang jelas dan mudah dipahami.</p></div>
+        <div class="trust-card"><div class="trust-icon">02</div><h3>Dapat disesuaikan</h3><p>Fitur tambahan, integrasi API, dan alur khusus dapat didiskusikan sebelum proses pengerjaan dimulai.</p></div>
+        <div class="trust-card"><div class="trust-icon">03</div><h3>Dukungan teknis</h3><p>Tersedia bantuan setup, revisi minor, dan pengecekan awal apabila produk mengalami kendala.</p></div>
+        <div class="trust-card"><div class="trust-icon">04</div><h3>Harga fleksibel</h3><p>Tersedia pilihan produk siap pakai, custom ringan, hingga pengembangan project dari awal sesuai kebutuhan.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="divider" id="products">
+    <div class="wrap">
+      <div class="shead r">
+        <div><div class="snum">02 — Products</div><h2 class="sh">Etalase Digital.</h2></div>
+        <p class="sdesc">Produk utama untuk kebutuhan otomasi, operasional digital, komunitas, bisnis, dan pengembangan project.</p>
+      </div>
+      <div class="bento r d1">
+        <a class="bc" href="https://wa.me/6281234567890?text=Halo%2C%20saya%20mau%20tanya%20Bot%20Automation">
+          <div class="clabel">Bestseller</div>
+          <div class="ctags"><span class="ctag a">Automated</span><span class="ctag">Node.js</span><span class="ctag">API</span></div>
+          <h3 class="ctitle">Bot Automation</h3>
+          <p class="cdesc">Bot Discord, Telegram, scraping ringan, notifier, auto task, dan sistem internal yang dapat disesuaikan dengan alur kerja pengguna.</p>
+          <div class="cmeta"><span class="cprice">Mulai Rp 50.000</span><span class="carr">&#8599;</span></div>
+        </a>
+        <a class="bc" href="https://wa.me/6281234567890?text=Halo%2C%20saya%20mau%20tanya%20Source%20Code%20Web">
+          <div class="clabel">Developer Kit</div>
+          <div class="ctags"><span class="ctag">Full Access</span><span class="ctag">Clean UI</span></div>
+          <h3 class="ctitle">Source Code Web</h3>
+          <p class="cdesc">Landing page, dashboard, template toko digital, dan web tools yang dapat dikembangkan kembali sesuai kebutuhan branding.</p>
+          <div class="cmeta"><span class="cprice">Mulai Rp 75.000</span><span class="carr">&#8599;</span></div>
+        </a>
+        <a class="bc" href="https://wa.me/6281234567890?text=Halo%2C%20saya%20mau%20tanya%20AI%20%26%20Premium%20Tools">
+          <div class="clabel">Digital Access</div>
+          <div class="ctags"><span class="ctag a">Garansi</span><span class="ctag">Private</span></div>
+          <h3 class="ctitle">AI & Premium Tools</h3>
+          <p class="cdesc">Akses tools digital pilihan untuk kebutuhan produktivitas, desain, dan development. Ketersediaan serta durasi dapat dikonfirmasi.</p>
+          <div class="cmeta"><span class="cprice">Harga by request</span><span class="carr">&#8599;</span></div>
+        </a>
+        <a class="bc" href="https://wa.me/6281234567890?text=Halo%2C%20saya%20mau%20diskusi%20Custom%20Project">
+          <div class="c-info">
+            <div class="clabel">Agency Level</div>
+            <div class="ctags"><span class="ctag a">Open Build</span><span class="ctag">Web</span><span class="ctag">Bot</span><span class="ctag">API</span></div>
+            <h3 class="ctitle">Custom Project</h3>
+            <p class="cdesc">Pengembangan web, bot, tools internal, dashboard, atau integrasi API berdasarkan kebutuhan. Alur dan estimasi akan disusun setelah diskusi awal.</p>
+          </div>
+          <div class="cmeta"><span class="cprice">Estimasi setelah diskusi</span><span class="carr">&#8599;</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="divider" id="tools">
+    <div class="wrap">
+      <div class="shead r">
+        <div><div class="snum">03 — Free Tools</div><h2 class="sh">Toolkit Gratis.</h2></div>
+        <p class="sdesc">Kumpulan tools ringan yang dapat digunakan sebagai utilitas publik sekaligus memperkuat kredibilitas layanan.</p>
+      </div>
+      <div class="tool-grid r d1">
+        <a href="#" class="tool-card"><div class="t-top"><div class="t-icon">&#8599;</div><span class="t-arr">&#8599;</span></div><div><h4 class="t-title">Link Shortener</h4><p class="t-desc">Persingkat URL panjang untuk kebutuhan distribusi link produk, campaign, atau halaman promosi.</p></div></a>
+        <a href="#" class="tool-card"><div class="t-top"><div class="t-icon">IMG</div><span class="t-arr">&#8599;</span></div><div><h4 class="t-title">Image Converter</h4><p class="t-desc">Konversi WebP, PNG, dan JPG langsung dari browser tanpa proses upload ke server.</p></div></a>
+        <a href="#" class="tool-card"><div class="t-top"><div class="t-icon">***</div><span class="t-arr">&#8599;</span></div><div><h4 class="t-title">Pass Generator</h4><p class="t-desc">Buat password kuat untuk kebutuhan akun, panel, server, dan akses internal.</p></div></a>
+        <a href="#" class="tool-card"><div class="t-top"><div class="t-icon">{ }</div><span class="t-arr">&#8599;</span></div><div><h4 class="t-title">JSON Formatter</h4><p class="t-desc">Rapikan, validasi, dan baca struktur JSON dengan tampilan yang lebih jelas.</p></div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLES / INSIGHTS SECTION -->
+  <section class="divider" id="articles">
+    <div class="wrap">
+      <div class="shead r">
+        <div><div class="snum">04 — Insights</div><h2 class="sh">Info AI & Digital Terbaru.</h2></div>
+        <p class="sdesc">Update seputar AI, bansos digital, tools gratis, dan insight teknologi yang bisa langsung diterapkan.</p>
+      </div>
+      <div class="article-grid r d1">
+        <a href="blog/claude-4-ai-terbaru-2026.html" class="article-card">
+          <div class="article-thumb">&#129302;</div>
+          <div class="article-body">
+            <span class="article-tag">AI Update</span>
+            <h3 class="article-title">Claude 4 Resmi Rilis: Apa yang Baru di 2026?</h3>
+            <p class="article-excerpt">Anthropic merilis Claude 4 dengan kemampuan reasoning yang jauh lebih kuat. Ini yang perlu kamu tahu.</p>
+            <div class="article-meta">
+              <span>22 Mei 2026</span>
+              <span class="article-read">Baca &#8594;</span>
+            </div>
+          </div>
+        </a>
+        <a href="blog/bansos-ai-gratis-mei-2026.html" class="article-card">
+          <div class="article-thumb">&#127873;</div>
+          <div class="article-body">
+            <span class="article-tag">Bansos AI</span>
+            <h3 class="article-title">Daftar Bansos AI Gratis Mei 2026</h3>
+            <p class="article-excerpt">Kumpulan akses gratis tools AI premium yang bisa kamu klaim bulan ini. Update setiap minggu.</p>
+            <div class="article-meta">
+              <span>20 Mei 2026</span>
+              <span class="article-read">Baca &#8594;</span>
+            </div>
+          </div>
+        </a>
+        <a href="blog/automation-workflow-pemula.html" class="article-card">
+          <div class="article-thumb">&#9881;</div>
+          <div class="article-body">
+            <span class="article-tag">Tutorial</span>
+            <h3 class="article-title">Panduan Automation Workflow untuk Pemula</h3>
+            <p class="article-excerpt">Mulai otomasi task harian kamu dengan tools gratis dan setup yang simpel. Cocok buat yang baru mulai.</p>
+            <div class="article-meta">
+              <span>18 Mei 2026</span>
+              <span class="article-read">Baca &#8594;</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <a href="blog/index.html" class="see-all-btn r d2">Lihat Semua Artikel &#8594;</a>
+    </div>
+  </section>
+
+
+  <section class="divider" id="stack">
+    <div class="wrap" style="padding-bottom:0">
+      <div class="shead r" style="border:none;margin-bottom:2rem">
+        <div><div class="snum">05 — Tech Stack</div><h2 class="sh">Senjata Utama.</h2></div>
+      </div>
+    </div>
+    <div class="stack-wrap r d1">
+      <div class="stack-track">
+        <span class="stack-item">TypeScript <span class="stack-sep">/</span></span><span class="stack-item">Next.js <span class="stack-sep">/</span></span><span class="stack-item">Python <span class="stack-sep">/</span></span><span class="stack-item">Tailwind CSS <span class="stack-sep">/</span></span><span class="stack-item">React <span class="stack-sep">/</span></span><span class="stack-item">Node.js <span class="stack-sep">/</span></span>
+        <span class="stack-item">TypeScript <span class="stack-sep">/</span></span><span class="stack-item">Next.js <span class="stack-sep">/</span></span><span class="stack-item">Python <span class="stack-sep">/</span></span><span class="stack-item">Tailwind CSS <span class="stack-sep">/</span></span><span class="stack-item">React <span class="stack-sep">/</span></span><span class="stack-item">Node.js <span class="stack-sep">/</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="divider" id="process">
+    <div class="wrap">
+      <div class="shead r">
+        <div><div class="snum">06 — Order Flow</div><h2 class="sh">Alurnya simpel.</h2></div>
+        <p class="sdesc">Proses pemesanan dibuat transparan agar setiap kebutuhan dapat dipahami sejak awal hingga produk diterima.</p>
+      </div>
+      <div class="process-grid r d1">
+        <div class="process-card"><h3>Pilih produk</h3><p>Pilih produk siap pakai atau jelaskan kebutuhan custom project yang ingin dikembangkan.</p></div>
+        <div class="process-card"><h3>Diskusi detail</h3><p>Bahas fitur, estimasi waktu, budget, metode deploy, dan kebutuhan teknis lainnya.</p></div>
+        <div class="process-card"><h3>Proses build</h3><p>Produk disiapkan, diuji, lalu dikirim dalam format yang mudah digunakan.</p></div>
+        <div class="process-card"><h3>Support</h3><p>Apabila terdapat kendala setup atau bug minor, bantuan akan diberikan sesuai ketentuan garansi.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="divider" id="faq">
+    <div class="wrap">
+      <div class="shead r">
+        <div><div class="snum">07 — F.A.Q</div><h2 class="sh">Yang sering ditanya.</h2></div>
+      </div>
+      <div class="faq-list r d1">
+        <div class="faq-item active">
+          <button class="faq-q">Apakah bisa request fitur custom? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Bisa. Anda dapat menjelaskan alur, fitur, dan referensi yang dibutuhkan. Setelah itu, estimasi harga dan waktu pengerjaan akan disusun berdasarkan scope project.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Apakah source code bisa dimodifikasi? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Bisa. Untuk produk source code, pengguna dapat melakukan modifikasi sesuai kebutuhan. Ketentuan jual ulang atau redistribusi mengikuti aturan pada masing-masing produk.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Apakah ada bantuan setup? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Tersedia untuk produk tertentu. Bantuan dapat berupa arahan instalasi, konfigurasi environment, atau pengecekan error awal.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Berapa lama custom project selesai? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Estimasi bergantung pada kompleksitas fitur. Bot sederhana umumnya membutuhkan 2-4 hari kerja, sedangkan web atau dashboard custom biasanya mulai dari 4-7 hari kerja.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="divider" id="cta">
+    <div class="wrap">
+      <div class="cta-box r">
+        <div>
+          <div class="snum">08 — Collaboration</div>
+          <h2 class="sh">Butuh produk digital atau sistem custom?</h2>
+          <p class="cta-sub">Kirim kebutuhan Anda melalui kontak yang tersedia. Mulai dari konfirmasi produk, permintaan pricelist, request bot, hingga diskusi project custom.</p>
+        </div>
+        <div class="channels">
+          <a href="https://wa.me/6281234567890?text=Halo%20AVORIX%20LAB%2C%20saya%20mau%20order%20/%20konsultasi%20produk%20digital" class="ch-link"><span class="ch-left"><span>WhatsApp</span><span class="ch-tag">FAST RESPOND</span></span><span class="ch-arr">&#8599;</span></a>
+          <a href="#" class="ch-link"><span class="ch-left"><span>Telegram</span><span class="ch-tag">CHAT</span></span><span class="ch-arr">&#8599;</span></a>
+          <a href="#" class="ch-link"><span class="ch-left"><span>Discord</span><span class="ch-tag">SERVER</span></span><span class="ch-arr">&#8599;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider">
+    <footer>
+      <span class="flogo">AVORIX LAB</span>
+      <span class="fmeta">&copy; 2026 &middot; Built for Digital Automation</span>
+      <span class="fmeta" id="clock"></span>
+    </footer>
+  </div>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
